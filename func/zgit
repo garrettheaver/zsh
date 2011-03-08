@@ -15,7 +15,8 @@ zgit_prompt() {
     commit_message="$zc[red]∞"
   elif zgit_has_any_modifications; then
     
-    file_timestamp=$(git status --porcelain | cut -c4- | xargs stat -f "%m" -t "%x" | sort | head -n1)
+    root_path=$(git rev-parse --show-toplevel)
+    file_timestamp=$(git status --porcelain | cut -c4- | sed -e s\|\^\|$root_path/\&\| | xargs stat -f "%m" -t "%x" | sort | head -n1)
     commit_timespan=$((($sys_timestamp - $file_timestamp) / 60))
     
     # decide what color the time should be
