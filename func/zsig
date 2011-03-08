@@ -2,6 +2,8 @@ zsig_prompt() {
   local xs=$?
   if [ $xs -eq 0 ]; then
     echo "$fg[white]:$fg[green]0"
+  elif [ $xs -ge 128 ]; then
+    echo "$fg[white]:$fg[red]$signals[$xs-127]:l"
   else
     echo "$fg[white]:$fg[red]$xs"
   fi
