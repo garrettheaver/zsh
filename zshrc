@@ -1,20 +1,14 @@
 setopt prompt_subst
 
-autoload -U zgit
-zgit
-
-autoload -U zsig
-zsig
-
-autoload -U promptinit
-promptinit
-
-autoload -U colors
-colors
+autoload -U zgit; zgit
+autoload -U zsig; zsig
+autoload -U zcolors; zcolors
+autoload -U promptinit; promptinit
+autoload -U colors; colors
 
 # red, green, blue, white, yellow, magenta, cyan, black, default
 
-PROMPT="%{$fg[cyan]%}%m%{$fg[white]%}:%{$fg[green]%}%n"
+PROMPT="$zc[cyan]%m$zc[white]:$zc[green]%n"
 PROMPT+="\$(zsig_prompt)"
 PROMPT+="\$(zgit_prompt)"
-PROMPT+="%{$fg[white]%}:%{$fg[yellow]%}%1~ %% %{$fg[default]%}"
+PROMPT+="$zc[white]:$zc[yellow]%1~ %% $zc[reset]"

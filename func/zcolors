@@ -1,0 +1,20 @@
+typeset -gA zc
+zc=()
+
+zc[reset]=$(echo "%{\e[0m%}")
+
+zc[red]=$(echo "%{\e[0;31m%}")
+zc[green]=$(echo "%{\e[0;32m%}")
+zc[yellow]=$(echo "%{\e[0;33m%}")
+zc[blue]=$(echo "%{\e[0;34m%}")
+zc[magenta]=$(echo "%{\e[0;35m%}")
+zc[cyan]=$(echo "%{\e[0;36m%}")
+zc[white]=$(echo "%{\e[0;37m%}")
+
+zc[RED]=$(echo "%{\e[0;91m%}")
+zc[GREEN]=$(echo "%{\e[0;92m%}")
+zc[YELLOW]=$(echo "%{\e[0;93m%}")
+zc[BLUE]=$(echo "%{\e[0;94m%}")
+zc[MAGENTA]=$(echo "%{\e[0;95m%}")
+zc[CYAN]=$(echo "%{\e[0;96m%}")
+zc[WHITE]=$(echo "%{\e[0;97m%}")

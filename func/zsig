@@ -1,10 +1,10 @@
 zsig_prompt() {
-  local xs=$?
-  if [ $xs -eq 0 ]; then
-    echo "%{$fg[white]%}:%{$fg[green]%}0"
-  elif [ $xs -ge 128 ]; then
-    echo "%{$fg[white]%}:%{$fg[red]%}$signals[$xs-127]:l"
+  local exit_status=$?
+  if [ $exit_status -eq 0 ]; then
+    echo "$zc[white]:$zc[green]0"
+  elif [ $exit_status -ge 128 ]; then
+    echo "$zc[white]:$zc[red]$signals[$exit_status-127]:l"
   else
-    echo "%{$fg[white]%}:%{$fg[red]%}$xs"
+    echo "$zc[white]:$zc[red]$exit_status"
   fi
 }
