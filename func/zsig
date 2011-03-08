@@ -1,0 +1,8 @@
+zsig_prompt() {
+  local xs=$?
+  if [ $xs -eq 0 ]; then
+    echo "$fg[white]:$fg[green]0"
+  else
+    echo "$fg[white]:$fg[red]$xs"
+  fi
+}
