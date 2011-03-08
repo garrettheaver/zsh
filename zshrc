@@ -18,5 +18,3 @@ PROMPT="%{$fg[cyan]%}%m%{$fg[white]%}:%{$fg[green]%}%n"
 PROMPT+="\$(zsig_prompt)"
 PROMPT+="\$(zgit_prompt)"
 PROMPT+="%{$fg[white]%}:%{$fg[yellow]%}%1~ %% %{$fg[default]%}"
-
-RPROMPT="%{$fg[green]%}%h%{$fg[default]%}"
