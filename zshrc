@@ -14,7 +14,9 @@ colors
 
 # red, green, blue, white, yellow, magenta, cyan, black, default
 
-PS1="$fg[cyan]%m$fg[white]:$fg[green]%n$fg[white]"
-PS1+="\$(zsig_prompt)"
-PS1+="\$(zgit_prompt)"
-PS1+="$fg[white]:$fg[yellow]%1~ %% $fg[default]"
+PROMPT="%{$fg[cyan]%}%m%{$fg[white]%}:%{$fg[green]%}%n"
+PROMPT+="\$(zsig_prompt)"
+PROMPT+="\$(zgit_prompt)"
+PROMPT+="%{$fg[white]%}:%{$fg[yellow]%}%1~ %% %{$fg[default]%}"
+
+RPROMPT="%{$fg[green]%}%h%{$fg[default]%}"

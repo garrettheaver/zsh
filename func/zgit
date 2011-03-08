@@ -12,7 +12,7 @@ zgit_prompt() {
   git_timestamp=$(git log -n1 --pretty=format:%at 2>/dev/null)
   
   if [ -z $git_timestamp ]; then
-    commit_message="$fg[red]∞"
+    commit_message="%{$fg[red]%}∞"
   elif zgit_has_any_modifications; then
     
     file_timestamp=$(git status --porcelain | cut -c4- | xargs stat -f "%m" -t "%x" | sort | head -n1)
@@ -20,19 +20,19 @@ zgit_prompt() {
     
     # decide what color the time should be
     if [ $commit_timespan -le 20 ]; then
-      commit_message="$fg[green]"
+      commit_message="%{$fg[green]%}"
     elif [ $commit_timespan -le 40 ]; then
-      commit_message="$fg[yellow]"
+      commit_message="%{$fg[yellow]%}"
     else
-      commit_message="$fg[red]"
+      commit_message="%{$fg[red]%}"
     fi
     
     commit_message+=$commit_timespan"m"
   else
-    commit_message="$fg[default]≡"
+    commit_message="%{$fg[default]%}≡"
   fi
   
-  echo "$fg[white]:$fg[red]$fg[white][$fg[cyan]$zgit_branch$fg[white]|$commit_message$fg[white]]"
+  echo "%{$fg[white]%}:[%{$fg[cyan]%}$zgit_branch%{$fg[white]%}|$commit_message%{$fg[white]%}]"
 }
 
 zgit_is_repo() {
