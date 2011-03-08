@@ -10,13 +10,19 @@ zgit_prompt() {
   # find out how long its been since we last committed
   sys_timestamp=$(date +%s)
   git_timestamp=$(git log -n1 --pretty=format:%at 2>/dev/null)
+  zgit_track="$(git rev-parse --git-dir)/ZGIT_TRACK"
   
   if [ -z $git_timestamp ]; then
     commit_message="$zc[red]∞"
   elif zgit_has_any_modifications; then
+
+    # create a trackfile so we can have a diverge timestamp
+    if [ ! -f $zgit_track ]; then
+      $(touch $zgit_track)
+    fi
     
-    root_path=$(git rev-parse --show-toplevel)
-    file_timestamp=$(git status --porcelain | cut -c4- | sed -e s\|\^\|$root_path/\&\| | xargs stat -f "%m" -t "%x" | sort | head -n1)
+    # calculate the time passed since the track file was created
+    file_timestamp=$(stat -f "%m" -t "%x" $zgit_track)
     commit_timespan=$((($sys_timestamp - $file_timestamp) / 60))
     
     # decide what color the time should be
@@ -28,9 +34,15 @@ zgit_prompt() {
       commit_message="$zc[red]"
     fi
     
+    # output the timespan
     commit_message+=$commit_timespan"m"
   else
     commit_message="$zc[green]≡"
+    
+    # remove the track file now we're back to clean
+    if [ -f $zgit_track ]; then
+      $(rm $zgit_track)
+    fi
   fi
   
   echo "$zc[white]:[$zc[cyan]$zgit_branch$zc[white]|$commit_message$zc[white]]"
