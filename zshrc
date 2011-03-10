@@ -6,6 +6,8 @@ autoload -U zcolors; zcolors
 autoload -U promptinit; promptinit
 autoload -U colors; colors
 
+export VIM_APP_DIR=/Applications/MacVim
+
 # red, green, blue, white, yellow, magenta, cyan, black, default
 
 PROMPT="$zc[cyan]%m$zc[white]:$zc[green]%n"
