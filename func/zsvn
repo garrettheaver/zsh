@@ -1,0 +1,17 @@
+zsvn_prompt() {
+  zsvn_is_repo || return
+
+  # grab the current svn revision number and the current branch label
+  zsvn_revision=$((svn info | grep Revision | sed 's/Revision\: //') 2>/dev/null)
+  zsvn_branch=$((svn info | grep '^URL:' | egrep -o '(tags|branches)/[^/]+|trunk' | egrep -o '[^/]+$') 2>/dev/null)
+
+  echo "$zc[white]:[$zc[cyan]$zsvn_revision$zc[white]|$zc[magenta]$zsvn_branch$zc[white]]"
+}
+
+zsvn_is_repo() {
+  if [ -e .svn ] ; then
+    return 0
+  else
+    return 1
+  fi
+}
