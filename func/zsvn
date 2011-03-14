@@ -5,11 +5,28 @@ zsvn_prompt() {
   zsvn_revision=$((svn info | grep Revision | sed 's/Revision\: //') 2>/dev/null)
   zsvn_branch=$((svn info | grep '^URL:' | egrep -o '(tags|branches)/[^/]+|trunk' | egrep -o '[^/]+$') 2>/dev/null)
 
-  echo "$zc[white]:[$zc[cyan]$zsvn_revision$zc[white]|$zc[magenta]$zsvn_branch$zc[white]]"
+  # check if there are any local uncommitted modifications
+  if zsvn_has_any_modifications; then
+    commit_message="$zc[red]±"
+  else
+    commit_message="$zc[green]≡"
+  fi
+
+  echo "$zc[white]:[$zc[cyan]$zsvn_branch$zc[white]|$zc[magenta]$zsvn_revision$zc[white]|$commit_message$zc[white]]"
 }
 
 zsvn_is_repo() {
   if [ -e .svn ] ; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+zsvn_has_any_modifications() {
+  local -a modified_files
+  modified_files=($(svn status 2>/dev/null))
+  if [ $#modified_files -gt 0 ]; then
     return 0
   else
     return 1

@@ -1,51 +1,26 @@
 zgit_prompt() {
   zgit_is_repo || return
 
-  # grab the name of the branch we're on
+  # grab the current revision and the name of the branch we're on
+  zgit_revision=$(git rev-parse --short HEAD 2>/dev/null)
   zgit_branch=$(git name-rev --name-only --no-undefined --always HEAD 2>/dev/null)
+  
   if [ -z $zgit_branch ]; then
     zgit_branch="master"
   fi
 
-  # find out how long its been since we last committed
-  sys_timestamp=$(date +%s)
+  # check if there has ever been a commit to the repository
   git_timestamp=$(git log -n1 --pretty=format:%at 2>/dev/null)
-  zgit_track="$(git rev-parse --git-dir)/ZGIT_TRACK"
 
   if [ -z $git_timestamp ]; then
     commit_message="$zc[red]∞"
   elif zgit_has_any_modifications; then
-
-    # create a trackfile so we can have a diverge timestamp
-    if [ ! -f $zgit_track ]; then
-      $(touch $zgit_track)
-    fi
-
-    # calculate the time passed since the track file was created
-    file_timestamp=$(stat -f "%m" -t "%x" $zgit_track)
-    commit_timespan=$((($sys_timestamp - $file_timestamp) / 60))
-
-    # decide what color the time should be
-    if [ $commit_timespan -le 20 ]; then
-      commit_message="$zc[green]"
-    elif [ $commit_timespan -le 40 ]; then
-      commit_message="$zc[yellow]"
-    else
-      commit_message="$zc[red]"
-    fi
-
-    # output the timespan
-    commit_message+=$commit_timespan"m"
+    commit_message="$zc[red]±"
   else
     commit_message="$zc[green]≡"
-
-    # remove the track file now we're back to clean
-    if [ -f $zgit_track ]; then
-      $(rm $zgit_track)
-    fi
   fi
 
-  echo "$zc[white]:[$zc[cyan]$zgit_branch$zc[white]|$commit_message$zc[white]]"
+  echo "$zc[white]:[$zc[cyan]$zgit_branch$zc[white]|$zc[magenta]$zgit_revision$zc[white]|$commit_message$zc[white]]"
 }
 
 zgit_is_repo() {
@@ -58,7 +33,7 @@ zgit_is_repo() {
 
 zgit_has_any_modifications() {
   local -a modified_files
-  modified_files=($((git status --porcelain | cut -c4-) 2>/dev/null))
+  modified_files=($(git status --porcelain 2>/dev/null))
   if [ $#modified_files -gt 0 ]; then
     return 0
   else
