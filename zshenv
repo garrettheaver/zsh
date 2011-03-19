@@ -1,4 +1,5 @@
 alias ll='ls -al'
+alias rspec='rspec --color'
 
 export CLICOLOR=TRUE
 export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql90/bin/:$PATH
