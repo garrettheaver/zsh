@@ -17,7 +17,7 @@ zgit_prompt() {
   git_timestamp=$(git log -n1 --pretty=format:%at 2>/dev/null)
 
   if [ -z $git_timestamp ]; then
-    commit_message="$zc[red]∞"
+    commit_message="$zc[red]-"
   elif zgit_has_any_modifications; then
     commit_message="$zc[red]±"
   else
