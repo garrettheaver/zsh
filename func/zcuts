@@ -25,6 +25,8 @@ ad() {
 st() {
   if zgit_is_repo; then
     git status --short $@
+  elif zsvn_is_repo; then
+    svn status $@
   else
     $_st $@
   fi

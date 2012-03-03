@@ -12,7 +12,7 @@ zsvn_prompt() {
     zsvn_color="$zc[green]"
   fi
 
-  echo "$zc[white]:[$zc[cyan]$zsvn_branch$zc[white]|$zsvn_color$zsvn_revision$zc[white]]"
+  echo "$zc[cyan]$zsvn_branch$zc[white]:$zsvn_color$zsvn_revision$zc[white]"
 }
 
 zsvn_is_repo() {

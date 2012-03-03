@@ -22,7 +22,7 @@ zgit_prompt() {
     zgit_color="$zc[green]"
   fi
 
-  echo "$zc[white]:[$zc[cyan]$zgit_branch$zc[white]|$zgit_color$zgit_revision$zc[white]]"
+  echo "$zc[cyan]$zgit_branch$zc[white]:$zgit_color$zgit_revision$zc[white]"
 }
 
 zgit_is_repo() {
