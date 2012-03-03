@@ -6,6 +6,7 @@ autoload -U zsig; zsig
 autoload -U zcolors; zcolors
 autoload -U promptinit; promptinit
 autoload -U colors; colors
+autoload -U zcuts; zcuts
 
 export VIM_APP_DIR=/Applications/MacVim
 

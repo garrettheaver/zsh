@@ -1,0 +1,23 @@
+aa() {
+  if zgit_is_repo; then
+    git add . --all
+  fi
+}
+
+st() {
+  if zgit_is_repo; then
+    git status $@
+  fi
+}
+
+di() {
+  if zgit_is_repo; then
+    git diff $@
+  fi
+}
+
+cm() {
+  if zgit_is_repo; then
+    git commit $@
+  fi
+}
