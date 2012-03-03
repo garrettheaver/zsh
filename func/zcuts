@@ -1,29 +1,55 @@
+# keep reference to original commands
+_aa=`which aa`
+_ad=`which ad`
+_st=`which st`
+_df=`which df`
+_cm=`which cm`
+_lg=`which lg`
+
 aa() {
   if zgit_is_repo; then
     git add . --all
+  else
+    $_aa $@
+  fi
+}
+
+ad() {
+  if zgit_is_repo; then
+    git add $@
+  else
+    $_ad $@
   fi
 }
 
 st() {
   if zgit_is_repo; then
     git status --short $@
+  else
+    $_st $@
   fi
 }
 
 df() {
   if zgit_is_repo; then
     git diff $@
+  else
+    $_df $@
   fi
 }
 
 cm() {
   if zgit_is_repo; then
     git commit $@
+  else
+    $_cm $@
   fi
 }
 
 lg() {
   if zgit_is_repo; then
     git log --pretty=oneline --graph --abbrev-commit --decorate $@
+  else
+    $_lg $@
   fi
 }
