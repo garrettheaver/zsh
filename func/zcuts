@@ -6,11 +6,11 @@ aa() {
 
 st() {
   if zgit_is_repo; then
-    git status $@
+    git status --short $@
   fi
 }
 
-di() {
+df() {
   if zgit_is_repo; then
     git diff $@
   fi
