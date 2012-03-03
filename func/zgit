@@ -6,7 +6,7 @@ zgit_prompt() {
   zgit_branch=$(git branch | grep \* | cut -c 3- 2>/dev/null)
 
   if [ -z $zgit_revision ]; then
-    zgit_revision="none"
+    zgit_revision="-------"
   fi
 
   if [ -z $zgit_branch ]; then
@@ -16,15 +16,13 @@ zgit_prompt() {
   # check if there has ever been a commit to the repository
   git_timestamp=$(git log -n1 --pretty=format:%at 2>/dev/null)
 
-  if [ -z $git_timestamp ]; then
-    commit_message="$zc[red]-"
-  elif zgit_has_any_modifications; then
-    commit_message="$zc[red]±"
+  if [ -z $git_timestamp ] || zgit_has_any_modifications; then
+    zgit_color="$zc[red]"
   else
-    commit_message="$zc[green]≡"
+    zgit_color="$zc[green]"
   fi
 
-  echo "$zc[white]:[$zc[cyan]$zgit_branch$zc[white]|$zc[magenta]$zgit_revision$zc[white]|$commit_message$zc[white]]"
+  echo "$zc[white]:[$zc[cyan]$zgit_branch$zc[white]|$zgit_color$zgit_revision$zc[white]]"
 }
 
 zgit_is_repo() {

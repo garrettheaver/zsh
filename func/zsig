@@ -1,7 +1,7 @@
 zsig_prompt() {
   local exit_status=$?
   if [ $exit_status -eq 0 ]; then
-    echo "$zc[white]:$zc[green]0"
+    echo "$zc[white]:$zc[green]-"
   elif [ $exit_status -ge 128 ]; then
     echo "$zc[white]:$zc[red]$signals[$exit_status-127]:l"
   else

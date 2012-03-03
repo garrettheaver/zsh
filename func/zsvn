@@ -7,12 +7,12 @@ zsvn_prompt() {
 
   # check if there are any local uncommitted modifications
   if zsvn_has_any_modifications; then
-    commit_message="$zc[red]±"
+    zsvn_color="$zc[red]"
   else
-    commit_message="$zc[green]≡"
+    zsvn_color="$zc[green]"
   fi
 
-  echo "$zc[white]:[$zc[cyan]$zsvn_branch$zc[white]|$zc[magenta]$zsvn_revision$zc[white]|$commit_message$zc[white]]"
+  echo "$zc[white]:[$zc[cyan]$zsvn_branch$zc[white]|$zsvn_color$zsvn_revision$zc[white]]"
 }
 
 zsvn_is_repo() {
