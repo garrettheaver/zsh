@@ -21,3 +21,9 @@ cm() {
     git commit $@
   fi
 }
+
+lg() {
+  if zgit_is_repo; then
+    git log --pretty=oneline --graph --abbrev-commit --decorate $@
+  fi
+}
