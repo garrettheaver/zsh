@@ -1,6 +1,7 @@
 # keep reference to original commands
 _aa=`which aa`
 _ad=`which ad`
+_ap=`which ap`
 _st=`which st`
 _df=`which df`
 _cm=`which cm`
@@ -19,6 +20,14 @@ ad() {
     git add $@
   else
     $_ad $@
+  fi
+}
+
+ap() {
+  if zgit_is_repo; then
+    ad -p
+  else
+    $_ap $@
   fi
 }
 
