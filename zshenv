@@ -2,7 +2,7 @@ alias ll='ls -al'
 alias rspec='rspec --color'
 
 export CLICOLOR=TRUE
-export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql90/bin/:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql90/bin/:$PATH:$HOME/.rvm/bin
 export EDITOR=vi
 
 # pull in the ruby version manager
