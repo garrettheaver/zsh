@@ -8,6 +8,8 @@ export EC2_URL="https://ec2.eu-west-1.amazonaws.com"
 
 export CLICOLOR=TRUE
 export PATH=/usr/local/bin:$HOME/.rvm/bin:/usr/texbin:$PATH
+
+export VIM_APP_DIR=/Applications/MacVim
 export EDITOR=vi
 
 # pull in the ruby version manager

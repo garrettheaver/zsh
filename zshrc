@@ -8,10 +8,7 @@ autoload -U promptinit; promptinit
 autoload -U colors; colors
 autoload -U zcuts; zcuts
 
-export VIM_APP_DIR=/Applications/MacVim
-
 # red, green, blue, white, yellow, magenta, cyan, black, default
-
 PROMPT="$zc[cyan]%m$zc[white]:$zc[green]%n"
 PROMPT+="\$(zgit_prompt)"
 PROMPT+="\$(zsvn_prompt)"
