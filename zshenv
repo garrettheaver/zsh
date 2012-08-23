@@ -2,10 +2,6 @@ alias ll='ls -al'
 alias rspec='rspec --color'
 alias cll='clear && ll'
 
-export JAVA_HOME="$(/usr/libexec/java_home)"
-export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
-export EC2_URL="https://ec2.eu-west-1.amazonaws.com"
-
 export CLICOLOR=TRUE
 export PATH=/usr/local/bin:$HOME/.rvm/bin:/usr/texbin:$PATH
 
