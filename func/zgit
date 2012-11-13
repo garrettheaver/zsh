@@ -6,7 +6,8 @@ zgit_prompt() {
   zgit_branch=$(git branch | grep \* | cut -c 3- 2>/dev/null)
 
   if [ -z $zgit_revision ]; then
-    return
+    zgit_revision='0000000'
+    zgit_branch='master'
   fi
 
   # check if there has ever been a commit to the repository
