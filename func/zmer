@@ -6,8 +6,8 @@ zmer_prompt() {
   zmer_is_repo || return
 
   # grab the current revision and the name of the branch we're on
-  zmer_revision=$(echo $zmer | grep 'parent' | cut -d: -f3 | cut -c1-7)
-  zmer_branch=$(echo $zmer | grep 'branch' | cut -d: -f2 | tr -d ' ')
+  zmer_revision=$(echo $zmer | grep 'parent:' | cut -d: -f3 | cut -c1-7)
+  zmer_branch=$(echo $zmer | grep 'branch:' | cut -d: -f2 | tr -d ' ')
 
   if zmer_has_any_modifications; then
     zmer_color="$zc[red]"
