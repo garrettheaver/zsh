@@ -22,19 +22,9 @@ zgit_prompt() {
 }
 
 zgit_is_repo() {
-  if [ -z $(git rev-parse --git-dir 2>/dev/null) ]; then
-    return 1
-  else
-    return 0
-  fi
+  [[ ! -z $(git rev-parse --git-dir 2>/dev/null) ]]
 }
 
 zgit_has_any_modifications() {
-  local -a modified_files
-  modified_files=($(git status --porcelain 2>/dev/null))
-  if [ $#modified_files -gt 0 ]; then
-    return 0
-  else
-    return 1
-  fi
+  [[ ${#$(git status --porcelain 2>/dev/null)} -gt 0 ]]
 }

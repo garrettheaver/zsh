@@ -16,19 +16,9 @@ zsvn_prompt() {
 }
 
 zsvn_is_repo() {
-  if [ -e .svn ] ; then
-    return 0
-  else
-    return 1
-  fi
+  [[ -e .svn ]]
 }
 
 zsvn_has_any_modifications() {
-  local -a modified_files
-  modified_files=($(svn status 2>/dev/null))
-  if [ $#modified_files -gt 0 ]; then
-    return 0
-  else
-    return 1
-  fi
+  [[ ${#$(svn status 2>/dev/null)} -gt 0 ]]
 }
