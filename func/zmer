@@ -1,6 +1,8 @@
-zmer_prompt() {
+zmer_summ() {
   zmer=$(hg sum 2>/dev/null)
+}
 
+zmer_prompt() {
   zmer_is_repo || return
 
   # grab the current revision and the name of the branch we're on
@@ -17,7 +19,7 @@ zmer_prompt() {
 }
 
 zmer_is_repo() {
-  [[ ! -z $(echo $zmer | cut -c1) ]]
+  zmer_summ; [[ ! -z $(echo $zmer | cut -c1) ]]
 }
 
 zmer_has_any_modifications() {

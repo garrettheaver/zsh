@@ -36,6 +36,8 @@ st() {
     git status --short $@
   elif zsvn_is_repo; then
     svn status $@
+  elif zmer_is_repo; then
+    hg status $@
   else
     $_st $@
   fi
@@ -44,6 +46,8 @@ st() {
 df() {
   if zgit_is_repo; then
     git diff $@
+  elif zmer_is_repo; then
+    hg diff $@
   else
     $_df $@
   fi
@@ -52,6 +56,8 @@ df() {
 cm() {
   if zgit_is_repo; then
     git commit $@
+  elif zmer_is_repo; then
+    hg commit $@
   else
     $_cm $@
   fi
@@ -60,6 +66,8 @@ cm() {
 lg() {
   if zgit_is_repo; then
     git log --pretty=oneline --graph --abbrev-commit --decorate $@
+  elif zmer_is_repo; then
+    hg log --graph --style compact
   else
     $_lg $@
   fi
