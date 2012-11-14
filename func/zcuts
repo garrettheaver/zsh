@@ -11,7 +11,7 @@ aa() {
   if zgit_is_repo; then
     git add . --all
   elif zmer_is_repo; then
-    hg add
+    hg addremove
   else
     $_aa $@
   fi
