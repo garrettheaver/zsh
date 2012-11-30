@@ -27,7 +27,7 @@ ad() {
 
 ap() {
   if zgit_is_repo; then
-    ad -p
+    ad -p $@
   else
     $_ap $@
   fi
