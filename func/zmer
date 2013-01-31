@@ -3,7 +3,7 @@ zmer_summ() {
 }
 
 zmer_prompt() {
-  zmer_is_repo || return
+  [ $USE_MER ] && zmer_is_repo || return
 
   # grab the current revision and the name of the branch we're on
   zmer_revision=$(echo $zmer | grep 'parent:' | cut -d: -f3 | cut -c1-7)

@@ -1,5 +1,5 @@
 zgit_prompt() {
-  zgit_is_repo || return
+  [ $USE_GIT ] && zgit_is_repo || return
 
   # grab the current revision and the name of the branch we're on
   zgit_revision=$(git rev-parse --short HEAD 2>/dev/null)
