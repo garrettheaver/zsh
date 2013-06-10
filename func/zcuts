@@ -2,6 +2,7 @@
 _aa=`which aa`
 _ad=`which ad`
 _ap=`which ap`
+_up=`which up`
 _st=`which st`
 _df=`which df`
 _cm=`which cm`
@@ -30,6 +31,16 @@ ap() {
     ad -p $@
   else
     $_ap $@
+  fi
+}
+
+up() {
+  if zgit_is_repo; then
+    git pull --rebase $@
+  elif zsvn_is_repo; then
+    svn update $@
+  else
+    $_up $@
   fi
 }
 
