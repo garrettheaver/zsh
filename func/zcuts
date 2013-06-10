@@ -2,12 +2,13 @@
 _aa=`which aa`
 _ad=`which ad`
 _ap=`which ap`
-_up=`which up`
 _st=`which st`
 _df=`which df`
 _cm=`which cm`
 _co=`which co`
 _lg=`which lg`
+_push=`which push`
+_pull=`which pull`
 
 aa() {
   if zgit_is_repo; then
@@ -32,16 +33,6 @@ ap() {
     ad -p $@
   else
     $_ap $@
-  fi
-}
-
-up() {
-  if zgit_is_repo; then
-    git pull --rebase $@
-  elif zsvn_is_repo; then
-    svn update $@
-  else
-    $_up $@
   fi
 }
 
@@ -94,3 +85,22 @@ lg() {
     $_lg $@
   fi
 }
+
+pull() {
+  if zgit_is_repo; then
+    git pull --rebase $@
+  elif zsvn_is_repo; then
+    svn update $@
+  else
+    $_pull $@
+  fi
+}
+
+push() {
+  if zgit_is_repo; then
+    git push
+  else
+    $_push $@
+  fi
+}
+
