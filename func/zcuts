@@ -6,6 +6,7 @@ _up=`which up`
 _st=`which st`
 _df=`which df`
 _cm=`which cm`
+_co=`which co`
 _lg=`which lg`
 
 aa() {
@@ -63,6 +64,14 @@ df() {
     hg diff $@
   else
     $_df $@
+  fi
+}
+
+co() {
+  if zgit_is_repo; then
+    git checkout $@
+  else
+    $_co $@
   fi
 }
 
