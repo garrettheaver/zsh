@@ -1,13 +1,15 @@
 alias ll='ls -al'
-alias rspec='rspec --color'
 alias cll='clear && ll'
-alias shotgun='shotgun -o 0.0.0.0'
+
+# ruby specific aliases
+alias shotgun='bundle exec shotgun -o 0.0.0.0'
+alias rspec='bundle exec rspec --color'
 
 export CLICOLOR=TRUE
-export PATH=/usr/local/bin:$HOME/.rvm/bin:/usr/texbin:$PATH
+export PATH=/usr/local/bin:$HOME/.rvm/bin:/usr/texbin:/usr/local/heroku/bin:$PATH
 
 export VIM_APP_DIR=/Applications/MacVim
-export EDITOR=vi
+export EDITOR=vim
 
 export USE_GIT=true
 
@@ -25,3 +27,4 @@ export USE_GIT=true
 
 fpath=($fpath $HOME/.zsh/func)
 typeset -U fpath
+
