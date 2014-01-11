@@ -1,9 +1,9 @@
 alias ll='ls -al'
-alias cll='clear && ll'
-alias bgone='kill -9'
+alias ts='date -u "+%Y%m%d%H%M%S"'
 
 # ruby specific aliases
 alias shotgun='bundle exec shotgun -o 0.0.0.0'
+alias rackup='bundle exec rackup -p 9393'
 alias rspec='bundle exec rspec --color'
 
 export CLICOLOR=TRUE
