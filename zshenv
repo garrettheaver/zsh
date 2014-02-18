@@ -5,6 +5,7 @@ alias ts='date -u "+%Y%m%d%H%M%S"'
 alias shotgun='bundle exec shotgun -o 0.0.0.0'
 alias rackup='bundle exec rackup -p 9393'
 alias rspec='bundle exec rspec --color'
+alias rake='bundle exec rake'
 
 export CLICOLOR=TRUE
 export PATH=/usr/local/bin:$HOME/.rvm/bin:/usr/texbin:/usr/local/heroku/bin:$PATH
