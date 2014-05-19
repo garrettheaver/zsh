@@ -2,6 +2,7 @@
 _aa=`which aa`
 _ad=`which ad`
 _ap=`which ap`
+_br=`which br`
 _st=`which st`
 _df=`which df`
 _cm=`which cm`
@@ -33,6 +34,14 @@ ap() {
     ad -p $@
   else
     $_ap $@
+  fi
+}
+
+br() {
+  if zgit_is_repo; then
+    git branch $@
+  else
+    $_br $@
   fi
 }
 
