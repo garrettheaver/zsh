@@ -8,6 +8,8 @@ _df=`which df`
 _cm=`which cm`
 _co=`which co`
 _lg=`which lg`
+_put=`which put`
+_pop=`which pop`
 _push=`which push`
 _pull=`which pull`
 
@@ -92,6 +94,22 @@ lg() {
     hg log --graph --style compact
   else
     $_lg $@
+  fi
+}
+
+put() {
+  if zgit_is_repo; then
+    git stash -u $@
+  else
+    $_put $@
+  fi
+}
+
+pop() {
+  if zgit_is_repo; then
+    git stash pop $@
+  else
+    $_pop $@
   fi
 }
 
