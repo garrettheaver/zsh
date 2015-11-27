@@ -7,6 +7,10 @@ alias rackup='bundle exec rackup -p 9393'
 alias rspec='bundle exec rspec --color'
 alias rake='bundle exec rake'
 
+# python specific
+export PYTHONPATH="$PYTHONPATH:./"
+alias pybot="/usr/local/bin/pybot -v SERVER:'0.0.0.0:8000'"
+
 export CLICOLOR=TRUE
 export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:/usr/texbin:/usr/local/heroku/bin:$PATH
 
