@@ -13,8 +13,6 @@ alias pybot="/usr/local/bin/pybot -v SERVER:'0.0.0.0:8000'"
 
 export CLICOLOR=TRUE
 export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:/usr/texbin:/usr/local/heroku/bin:$PATH
-
-export VIM_APP_DIR=/Applications/MacVim
 export EDITOR=vim
 
 export USE_GIT=true
