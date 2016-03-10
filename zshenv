@@ -17,9 +17,6 @@ export EDITOR=vim
 
 export USE_GIT=true
 
-# the ruby version manager
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 # travis management gem
 [[ -s "$HOME/.travis/travis.sh" ]] && . "$HOME/.travis/travis.sh"
 
@@ -28,6 +25,9 @@ export USE_GIT=true
 
 # node version manager
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
+
+# the ruby version manager
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # secret env variables
 [[ -s "$HOME/.zsh/secret" ]] && . "$HOME/.zsh/secret"
