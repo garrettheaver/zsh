@@ -26,6 +26,9 @@ export USE_GIT=true
 # node version manager
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 
+# python env manager
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
 # the ruby version manager
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
