@@ -1,5 +1,6 @@
-alias ll='ls -al'
+alias ls="ls --color=auto"
 alias ts='date -u "+%Y%m%d%H%M%S"'
+alias ll='ls -al'
 
 # ruby specific aliases
 alias shotgun='bundle exec shotgun -o 0.0.0.0'
