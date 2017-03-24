@@ -1,5 +1,6 @@
-alias ls="ls --color=auto"
+# simple commands
 alias ts='date -u "+%Y%m%d%H%M%S"'
+alias ls="ls --color=auto"
 alias ll='ls -al'
 
 # ruby specific aliases
@@ -8,18 +9,12 @@ alias rackup='bundle exec rackup -p 9393'
 alias rspec='bundle exec rspec --color'
 alias rake='bundle exec rake'
 
-# python specific
-export PYTHONPATH="$PYTHONPATH:./"
-alias pybot="/usr/local/bin/pybot -v SERVER:'0.0.0.0:8000'"
-
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export CLICOLOR=TRUE
-export PATH=/usr/local/bin:/usr/local/sbin:$HOME/.rvm/bin:/usr/texbin:/usr/local/heroku/bin:$PATH
 export EDITOR=vim
 
+# for zgit
 export USE_GIT=true
-
-# travis management gem
-[[ -s "$HOME/.travis/travis.sh" ]] && . "$HOME/.travis/travis.sh"
 
 # play version manager
 [[ -s "$HOME/.pvm/pvm.sh" ]] && . "$HOME/.pvm/pvm.sh"
@@ -28,9 +23,13 @@ export USE_GIT=true
 [[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
 
 # python env manager
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if [ -s "$HOME/.pyenv/bin/pyenv" ]; then
+  export PATH="/home/garrett/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
-# the ruby version manager
+# ruby version manager
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # secret env variables
