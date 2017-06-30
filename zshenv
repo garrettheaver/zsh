@@ -1,6 +1,10 @@
+# linux only alias
+if [[ `uname` == "Linux" ]]; then
+  alias ls="ls --color=auto"
+fi
+
 # simple commands
 alias ts='date -u "+%Y%m%d%H%M%S"'
-alias ls="ls --color=auto"
 alias ll='ls -al'
 
 # ruby specific aliases
@@ -24,7 +28,7 @@ export USE_GIT=true
 
 # python env manager
 if [ -s "$HOME/.pyenv/bin/pyenv" ]; then
-  export PATH="/home/garrett/.pyenv/bin:$PATH"
+  export PATH="$HOME/.pyenv/bin:$PATH"
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
