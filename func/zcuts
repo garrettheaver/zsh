@@ -1,17 +1,17 @@
 # keep reference to original commands
-_aa=`which aa`
-_ad=`which ad`
-_ap=`which ap`
-_br=`which br`
-_st=`which st`
-_df=`which df`
-_cm=`which cm`
-_co=`which co`
-_lg=`which lg`
-_put=`which put`
-_pop=`which pop`
-_push=`which push`
-_pull=`which pull`
+_aa=`which aa 2>/dev/null`
+_ad=`which ad 2>/dev/null`
+_ap=`which ap 2>/dev/null`
+_br=`which br 2>/dev/null`
+_st=`which st 2>/dev/null`
+_df=`which df 2>/dev/null`
+_cm=`which cm 2>/dev/null`
+_co=`which co 2>/dev/null`
+_lg=`which lg 2>/dev/null`
+_put=`which put 2>/dev/null`
+_pop=`which pop 2>/dev/null`
+_push=`which push 2>/dev/null`
+_pull=`which pull 2>/dev/null`
 
 aa() {
   if zgit_is_repo; then
