@@ -33,6 +33,11 @@ if [ -s "$HOME/.pyenv/bin/pyenv" ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
+# dotnet core cli
+if [ -s "/usr/local/share/dotnet" ]; then
+  export PATH="$PATH:/usr/local/share/dotnet"
+fi
+
 # ruby version manager
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
