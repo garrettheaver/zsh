@@ -5,30 +5,14 @@ export USE_GIT=true
 fpath=($fpath $HOME/.zsh/func)
 typeset -U fpath
 
-setopt prompt_subst
-
-autoload -U zgit; zgit
-autoload -U zsvn; zsvn
-autoload -U zmer; zmer
-autoload -U zsig; zsig
-autoload -U zcolors; zcolors
-autoload -U promptinit; promptinit
-autoload -U colors; colors
-autoload -U zcuts; zcuts
-
-HISTSIZE=1000
-SAVEHIST=1000
-
 # linux only alias
 if [[ `uname` == "Linux" ]]; then
   alias ls="ls --color=auto"
 fi
 
-# simple commands
+# simple posix alias commands
 alias ts='date -u "+%Y%m%d%H%M%S"'
 alias ll='ls -al'
-
-#export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # homebrew on macOS
 if [ -s "/opt/homebrew/bin/brew" ]; then
@@ -61,6 +45,20 @@ if [ -s "$HOME/.rvm" ]; then
   export PATH="$PATH:$HOME/.rvm/bin"
   . "$HOME/.rvm/scripts/rvm"
 fi
+
+setopt prompt_subst
+
+autoload -U zgit; zgit
+autoload -U zsvn; zsvn
+autoload -U zmer; zmer
+autoload -U zsig; zsig
+autoload -U zcolors; zcolors
+autoload -U promptinit; promptinit
+autoload -U colors; colors
+autoload -U zcuts; zcuts
+
+HISTSIZE=1000
+SAVEHIST=1000
 
 # red, green, blue, white, yellow, magenta, cyan, black, default
 PROMPT="$zc[cyan]%m$zc[white]:$zc[green]%n"
