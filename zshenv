@@ -38,11 +38,13 @@ if [ -s "/usr/local/share/dotnet" ]; then
 fi
 
 # ruby version manager
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+if [ -s "$HOME/.rvm" ]; then
+  export PATH="$PATH:$HOME/.rvm/bin"
+  . "$HOME/.rvm/scripts/rvm"
+fi
 
 # secret env variables
 [[ -s "$HOME/.zsh/secret" ]] && . "$HOME/.zsh/secret"
 
 fpath=($fpath $HOME/.zsh/func)
 typeset -U fpath
-
