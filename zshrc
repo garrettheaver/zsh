@@ -40,6 +40,11 @@ if [ -s "/usr/local/share/dotnet" ]; then
   export PATH="$PATH:/usr/local/share/dotnet"
 fi
 
+# java version manager
+if [ -s "$HOME/.sdkman" ]; then
+  . "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
 # secret env variables
 [[ -s "$HOME/.zsh/secret" ]] && . "$HOME/.zsh/secret"
 
