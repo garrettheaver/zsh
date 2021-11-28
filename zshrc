@@ -1,5 +1,7 @@
 export EDITOR=vim
 export CLICOLOR=TRUE
+
+# enable git prompt
 export USE_GIT=true
 
 fpath=($fpath $HOME/.zsh/func)
@@ -16,6 +18,7 @@ alias ll='ls -al'
 
 # homebrew on macOS
 if [ -s "/opt/homebrew/bin/brew" ]; then
+  export HOMEBREW_NO_ANALYTICS=1
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
