@@ -7,24 +7,23 @@ fi
 alias ts='date -u "+%Y%m%d%H%M%S"'
 alias ll='ls -al'
 
-# ruby specific aliases
-alias shotgun='bundle exec shotgun -o 0.0.0.0'
-alias rackup='bundle exec rackup -p 9393'
-alias rspec='bundle exec rspec --color'
-alias rake='bundle exec rake'
-
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export CLICOLOR=TRUE
 export EDITOR=vim
 
-# for zgit
+# enable zgit
 export USE_GIT=true
 
-# play version manager
-[[ -s "$HOME/.pvm/pvm.sh" ]] && . "$HOME/.pvm/pvm.sh"
+# homebrew on macOS
+if [ -s "/opt/homebrew/bin/brew" ]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # node version manager
-[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
+if [ -s "$HOME/.nvm/nvm.sh" ]; then
+  . "$HOME/.nvm/nvm.sh"
+  . "$HOME/.nvm/bash_completion"
+fi
 
 # python env manager
 if [ -s "$HOME/.pyenv/bin/pyenv" ]; then
