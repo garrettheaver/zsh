@@ -4,6 +4,9 @@ export CLICOLOR=TRUE
 # enable git prompt
 export USE_GIT=true
 
+# exports for golang
+export GOPATH=$HOME/.go
+
 fpath=($fpath $HOME/.zsh/func)
 typeset -U fpath
 
