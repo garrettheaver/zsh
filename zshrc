@@ -7,6 +7,9 @@ export USE_GIT=true
 # exports for golang
 export GOPATH=$HOME/.go
 
+# optouts
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
+
 fpath=($fpath $HOME/.zsh/func)
 typeset -U fpath
 
