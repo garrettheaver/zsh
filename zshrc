@@ -80,3 +80,4 @@ PROMPT+="\$(zgit_prompt)"
 PROMPT+="\$(zsvn_prompt)"
 PROMPT+="\$(zmer_prompt)"
 PROMPT+="$zc[white]:$zc[yellow]%1~ %% $zc[reset]"
+
