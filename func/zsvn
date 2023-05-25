@@ -1,5 +1,5 @@
 zsvn_prompt() {
-  [ $USE_SVN ] && zsvn_is_repo || return
+  zsvn_is_repo || return
 
   # grab the current svn revision number and the current branch label
   zsvn_revision=$((svn info | grep Revision | sed 's/Revision\: //') 2>/dev/null)
@@ -16,6 +16,7 @@ zsvn_prompt() {
 }
 
 zsvn_is_repo() {
+  [ $USE_SVN ] || return
   [[ -e .svn ]]
 }
 
