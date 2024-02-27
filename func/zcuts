@@ -125,7 +125,7 @@ pull() {
 
 push() {
   if zgit_is_repo; then
-    git push
+    git push $@
   else
     $_push $@
   fi
