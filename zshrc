@@ -35,8 +35,7 @@ if [ -s "$HOME/.nvm/nvm.sh" ]; then
 fi
 
 # python env manager
-if [ -s "$HOME/.pyenv/bin/pyenv" ]; then
-  export PATH="$HOME/.pyenv/bin:$PATH"
+if [ -s "/opt/homebrew/bin/pyenv" ]; then
   eval "$(pyenv init -)"
 fi
 
